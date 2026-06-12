@@ -1,19 +1,19 @@
 [
   {
-    "id": "d-product",
-    "name": "プロダクト開発",
+    "id": "d-scale",
+    "name": "計量器",
     "positions": [
-      { "id": "p-fe", "name": "フロントエンドエンジニア", "count": 4 },
-      { "id": "p-be", "name": "バックエンドエンジニア", "count": 3 },
-      { "id": "p-design", "name": "デザイナー", "count": 2 }
+      { "id": "p-digital", "name": "デジタル台秤",   "count": 3 },
+      { "id": "p-precise", "name": "精密天秤",        "count": 2 },
+      { "id": "p-load",    "name": "ロードセル",       "count": 1 }
     ]
   },
   {
-    "id": "d-biz",
-    "name": "ビジネス",
+    "id": "d-sensor",
+    "name": "センサー・検査装置",
     "positions": [
-      { "id": "p-pm", "name": "プロダクトマネージャー", "count": 3 },
-      { "id": "p-sales", "name": "セールス", "count": 4 }
+      { "id": "p-pressure", "name": "圧力センサー",   "count": 2 },
+      { "id": "p-inspect",  "name": "検査装置",        "count": 1 }
     ]
   }
 ]

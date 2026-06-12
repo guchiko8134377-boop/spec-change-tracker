@@ -200,7 +200,7 @@ export function CandidateListPane({
     <section className="flex w-[280px] shrink-0 flex-col border-r border-border bg-background">
       <header className="flex h-12 shrink-0 items-center border-b border-border px-3">
         <h2 className="truncate text-sm font-semibold text-foreground">
-          フロントエンドエンジニア
+          デジタル台秤
         </h2>
       </header>
       <ScrollArea className="min-h-0 flex-1">
@@ -270,11 +270,11 @@ export function CandidateListPane({
           onOpenChange={(open) => {
             if (!open) setAddDialogStage(null);
           }}
-          title="候補者を追加"
-          description={`「${addDialogStage.label}」ステージに候補者を追加します`}
-          fieldLabel="氏名"
+          title="仕様変更を追加"
+          description={`「${addDialogStage.label}」に仕様変更を追加します`}
+          fieldLabel="変更内容"
           fieldId="candidate-name"
-          placeholder="例: 山田 太郎"
+          placeholder="例: 最大計量値 500g → 600g 変更"
           onAdd={(name) => onAddCandidate(addDialogStage.stage, name)}
         />
       )}
@@ -284,7 +284,7 @@ export function CandidateListPane({
         onOpenChange={(open) => {
           if (!open) setArchiveTarget(null);
         }}
-        title="候補者をアーカイブしますか？"
+        title="仕様変更をアーカイブしますか？"
         itemName={archiveTarget?.name ?? ""}
         description={`「${archiveTarget?.name ?? ""}」をアーカイブします。後で「アーカイブ済み」から復元できます。`}
         actionLabel="アーカイブ"

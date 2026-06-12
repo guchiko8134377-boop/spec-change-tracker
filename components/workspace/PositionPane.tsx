@@ -140,11 +140,11 @@ export function PositionPane({
           onOpenChange={(open) => {
             if (!open) setAddDialogDeptId(null);
           }}
-          title="ポジションを追加"
-          description={`${addDialogDept.name} に新しいポジションを追加します`}
-          fieldLabel="ポジション名"
+          title="カテゴリを追加"
+          description={`${addDialogDept.name} に新しいカテゴリを追加します`}
+          fieldLabel="カテゴリ名"
           fieldId="pos-name"
-          placeholder="例: データエンジニア"
+          placeholder="例: テスト・QA"
           onAdd={(name) => onAddPosition(addDialogDept.id, name)}
         />
       )}
@@ -154,7 +154,7 @@ export function PositionPane({
         onOpenChange={(open) => {
           if (!open) setDeleteTarget(null);
         }}
-        title="ポジションを削除しますか？"
+        title="カテゴリを削除しますか？"
         itemName={deleteTarget?.posName ?? ""}
         onConfirm={() => {
           if (deleteTarget) {

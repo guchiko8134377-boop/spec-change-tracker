@@ -250,13 +250,13 @@ function RecruitingConditionsCard({
       </CardHeader>
       <CardContent>
         <dl className="flex flex-col gap-2.5 text-sm">
-          <InlineFieldRow label="希望年収">
+          <InlineFieldRow label="版番号（カタログ）">
             <div className="flex items-center gap-1.5">
               <div className="w-20">
                 <InlineTextField
                   value={profile.desiredSalaryMin}
                   onSave={(v) => updateField("desiredSalaryMin", v)}
-                  ariaLabel="希望年収（下限）"
+                  ariaLabel="工数（下限）"
                   placeholder="—"
                 />
               </div>
@@ -265,20 +265,20 @@ function RecruitingConditionsCard({
                 <InlineTextField
                   value={profile.desiredSalaryMax}
                   onSave={(v) => updateField("desiredSalaryMax", v)}
-                  ariaLabel="希望年収（上限）"
+                  ariaLabel="工数（上限）"
                   placeholder="—"
                 />
               </div>
               <span className="shrink-0 text-xs text-muted-foreground">
-                万円
+                /取説
               </span>
             </div>
           </InlineFieldRow>
-          <InlineFieldRow label="入社可能日">
+          <InlineFieldRow label="承認期限">
             <InlineDateField
               value={profile.availableStartDate}
               onSave={(v) => updateField("availableStartDate", v)}
-              ariaLabel="入社可能日"
+              ariaLabel="期限"
             />
           </InlineFieldRow>
         </dl>
@@ -374,7 +374,7 @@ function ScreeningFlowListCard({
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {s.interviewer || "未予定"}
+                      {s.interviewer || "担当者未定"}
                     </p>
                     {showComment && (
                       <p className="mt-0.5 line-clamp-2 border-l-2 border-primary/20 pl-2 text-xs leading-relaxed text-foreground/80">
@@ -396,11 +396,11 @@ function ScreeningFlowListCard({
 // ===== 応募経路の選択肢（Pane 3 ヘッダー帯トグル内で使用） =====
 
 const INITIAL_SOURCE_OPTIONS: ComboOption[] = [
-  { value: "社員リファラル", description: "既存社員からの紹介で応募" },
-  { value: "Wantedly", description: "Wantedly 経由の応募" },
-  { value: "LinkedIn", description: "LinkedIn 経由の応募" },
-  { value: "直接応募", description: "自社採用ページから直接応募" },
-  { value: "エージェント経由", description: "採用エージェントを介した応募" },
+  { value: "性能変更",   description: "仕様値・性能の変更（計量範囲・精度など）" },
+  { value: "部品変更",   description: "使用部品・材料の変更" },
+  { value: "規格対応",   description: "法規制・安全規格への新規対応" },
+  { value: "外観変更",   description: "外形・色・表示の変更" },
+  { value: "廃番・後継", description: "製品廃番または後継機への移行" },
 ];
 
 // ===== ヘッダー帯トグル内の連絡先行 =====
@@ -454,20 +454,20 @@ function ApplicationInfoCardContent({
       {/* 基本（名前 / 生年月日 / 応募経路 / 採用担当） — Card タイトル「応募情報」が見出しを兼ねる */}
       <section className="flex flex-col gap-3 pb-4">
         <dl className="flex flex-col gap-2.5 text-sm">
-          <InlineFieldRow label="名前">
+          <InlineFieldRow label="変更内容">
             <InlineTextField
               value={profile.name}
               onSave={(v) => updateField("name", v)}
-              ariaLabel="名前"
+              ariaLabel="変更内容"
             />
           </InlineFieldRow>
-          <InlineFieldRow label="生年月日">
+          <InlineFieldRow label="変更日">
             <div className="flex items-center gap-2">
               <div className="flex-1">
                 <InlineDateField
                   value={profile.birthday}
                   onSave={(v) => updateField("birthday", v)}
-                  ariaLabel="生年月日"
+                  ariaLabel="変更日"
                 />
               </div>
               <span className="shrink-0 text-xs text-muted-foreground">
@@ -475,20 +475,20 @@ function ApplicationInfoCardContent({
               </span>
             </div>
           </InlineFieldRow>
-          <InlineFieldRow label="応募経路">
+          <InlineFieldRow label="変更種別">
             <InlineComboboxField
               value={profile.source}
               options={sourceOptions}
               onSave={(v) => updateField("source", v)}
               onCreate={handleAddSource}
-              ariaLabel="応募経路"
+              ariaLabel="変更種別"
             />
           </InlineFieldRow>
-          <InlineFieldRow label="採用担当">
+          <InlineFieldRow label="登録者">
             <InlineTextField
               value={profile.recruiter}
               onSave={(v) => updateField("recruiter", v)}
-              ariaLabel="採用担当"
+              ariaLabel="登録者"
             />
           </InlineFieldRow>
         </dl>
@@ -496,34 +496,34 @@ function ApplicationInfoCardContent({
 
       <Separator />
 
-      {/* 連絡先 */}
+      {/* 関連リンク */}
       <section className="flex flex-col gap-3 py-4">
-        <SectionLabel>連絡先</SectionLabel>
+        <SectionLabel>関連リンク</SectionLabel>
         <ul className="flex flex-col gap-2.5">
           <ContactRow
             icon={<Mail className="size-3.5" />}
-            label="メールアドレス"
+            label="チケットURL"
           >
             <InlineTextField
               value={profile.email}
               onSave={(v) => updateField("email", v)}
-              ariaLabel="メールアドレス"
+              ariaLabel="チケットURL"
               inputType="email"
             />
           </ContactRow>
-          <ContactRow icon={<Phone className="size-3.5" />} label="電話番号">
+          <ContactRow icon={<Phone className="size-3.5" />} label="リポジトリURL">
             <InlineTextField
               value={profile.phone}
               onSave={(v) => updateField("phone", v)}
-              ariaLabel="電話番号"
+              ariaLabel="リポジトリURL"
               inputType="tel"
             />
           </ContactRow>
-          <ContactRow icon={<MapPin className="size-3.5" />} label="住所">
+          <ContactRow icon={<MapPin className="size-3.5" />} label="ドキュメントURL">
             <InlineTextField
               value={profile.address}
               onSave={(v) => updateField("address", v)}
-              ariaLabel="住所"
+              ariaLabel="ドキュメントURL"
             />
           </ContactRow>
         </ul>
@@ -531,25 +531,25 @@ function ApplicationInfoCardContent({
 
       <Separator />
 
-      {/* 職務経歴 */}
+      {/* 変更内容詳細 */}
       <section className="flex flex-col gap-2 py-4">
-        <SectionLabel>職務経歴</SectionLabel>
+        <SectionLabel>変更内容詳細</SectionLabel>
         <InlineTextareaField
           value={profile.careerText}
           onSave={(v) => updateField("careerText", v)}
-          ariaLabel="職務経歴"
+          ariaLabel="変更内容詳細"
         />
       </section>
 
       <Separator />
 
-      {/* 志望動機 */}
+      {/* 変更の背景・理由 */}
       <section className="flex flex-col gap-2 pt-4">
-        <SectionLabel>志望動機</SectionLabel>
+        <SectionLabel>変更の背景・理由</SectionLabel>
         <InlineTextareaField
           value={profile.motivationFull}
           onSave={(v) => updateField("motivationFull", v)}
-          ariaLabel="志望動機"
+          ariaLabel="変更の背景・理由"
         />
       </section>
     </div>
@@ -621,10 +621,10 @@ function CandidateHeader({
       </Avatar>
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <h2 className="font-heading truncate text-xl font-semibold text-foreground">
-          {profile.name || "名前未設定"}
+          {profile.name || "変更内容未設定"}
         </h2>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          {profile.birthday && <span>{calculateAge(profile.birthday)}</span>}
+          {profile.birthday && <span>変更日: {profile.birthday}</span>}
           {profile.birthday && <span aria-hidden="true">·</span>}
           <ScoreLabel value={getScorecardsAverageScore(scorecards)} />
         </div>

@@ -1,246 +1,193 @@
 [
   {
-    "id": "c1",
+    "id": "sc-001",
     "profile": {
-      "name": "田中 太郎",
-      "birthday": "",
-      "source": "",
+      "name": "最大計量値 500g → 600g 変更",
+      "birthday": "2026-06-01",
+      "source": "性能変更",
       "email": "",
       "phone": "",
       "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
+      "recruiter": "田中 健",
+      "desiredSalaryMin": "Rev.3",
       "desiredSalaryMax": "",
-      "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
-    },
-    "scorecards": [],
-    "stage": "screening"
-  },
-  {
-    "id": "c2",
-    "profile": {
-      "name": "佐藤 花子",
-      "birthday": "1995-08-12",
-      "source": "社員リファラル",
-      "email": "hanako.sato@example.com",
-      "phone": "090-XXXX-XXXX",
-      "address": "東京都目黒区",
-      "recruiter": "山田 リクルーター",
-      "desiredSalaryMin": "600",
-      "desiredSalaryMax": "700",
-      "availableStartDate": "2026-07-01",
-      "careerText": "2022-04 〜 現在  株式会社 ABC  シニアフロントエンドエンジニア\n  toB SaaS のフロントエンド設計・実装・レビューをリード。デザインシステムの整備に携わる。\n2019-04 〜 2022-03  株式会社 XYZ  フロントエンドエンジニア\n  React + TypeScript の SPA 立ち上げ、GraphQL クライアントの導入、CI/CD の整備。\n2017-04 〜 2019-03  株式会社 LMN  Web エンジニア\n  社内向け業務システムの開発。最後の半年は新卒の OJT も担当。",
-      "motivationFull": "プロダクトの方向性を技術側から提案できる環境を求めています。御社の「現場の課題から逆算してプロダクトを作る」というスタイルに強く共感し、自分の強みであるフロントエンド設計と顧客理解の両方を活かせる場と考えました。直近 3 年で関わってきた toB SaaS の経験を踏まえ、初期フェーズのプロダクトでも、UI とドメインの両軸でチームに貢献できると考えています。"
+      "availableStartDate": "2026-06-30",
+      "careerText": "最大計量値を500 gから600 gへ変更。精度クラスIIIに新規対応。\n\n影響範囲：\n- カタログ（仕様表・表紙スペック記載）\n- Webサイト（製品ページ）\n- 価格表（品番・定価）\n- 取扱説明書（Rev.3 → Rev.4）",
+      "motivationFull": "顧客からの要望に応じ最大計量値を拡大。精度クラスIIIへの対応により、新規業種への販売も可能となる。カタログおよび取扱説明書の更新が必要。"
     },
     "scorecards": [
       {
         "stage": "screening",
-        "label": "書類選考",
-        "date": "2026-04-28",
-        "format": "書類審査",
-        "interviewer": "佐藤 マネージャー",
-        "decision": "通過",
-        "comment": "経験が要件にマッチしている。toB SaaS の知見と、デザインシステムの整備経験が特に魅力。一次面接で技術深掘りを行いたい。",
-        "summary": "応募書類より、6 年の実務経験のうち直近 3 年で React + TypeScript を中心に設計・レビューをリードしている。GraphQL / Next.js の経験あり。リーダーシップは OJT 寄り。",
-        "axisScores": {
-          "achievements": 4,
-          "thinkingAbility": null,
-          "communication": null,
-          "cultureFit": null
-        },
+        "label": "未申請",
+        "date": "2026-06-01",
+        "format": "非同期",
+        "interviewer": "田中 健",
+        "decision": "完了",
+        "comment": "カタログ改訂版（Rev.3）を制作済み。印刷前に承認を取得する必要あり。",
+        "summary": "仕様変更を受けてカタログのスペック表を更新。表紙の最大計量値も修正済み。PDF版をデザイン会社に入稿待ち。",
+        "axisScores": { "achievements": 5, "thinkingAbility": null, "communication": null, "cultureFit": null },
         "attachments": [
-          {
-            "id": "att-c2-screening-cv",
-            "kind": "pdf",
-            "name": "職務経歴書.pdf",
-            "size": "120 KB"
-          },
-          {
-            "id": "att-c2-screening-resume",
-            "kind": "pdf",
-            "name": "履歴書.pdf",
-            "size": "84 KB"
-          },
-          {
-            "id": "att-c2-screening-portfolio",
-            "kind": "pdf",
-            "name": "ポートフォリオ.pdf",
-            "size": "2.1 MB"
-          }
+          { "id": "att-001-cat", "kind": "pdf", "name": "カタログ_DS500_Rev3.pdf", "size": "2.4 MB" }
         ]
       },
       {
         "stage": "first",
-        "label": "一次面接",
-        "date": "2026-05-05",
-        "format": "オンライン (Google Meet)",
-        "interviewer": "田中 部長",
-        "decision": "通過",
-        "comment": "コミュ力が高く、質問に対して具体例を交えて答えていた。技術的な深掘りでも自分の判断軸を持って答えており、シニアとして期待できる。",
-        "summary": "自己紹介で 6 年の toB SaaS 経験を強調。技術選定では「チームの学習曲線」を最優先する判断軸を持つ。リーダーシップ経験は OJT 寄りで、フォーマルなマネジメントは未経験。",
-        "axisScores": {
-          "achievements": 5,
-          "thinkingAbility": 4,
-          "communication": 4,
-          "cultureFit": 4
-        },
-        "attachments": [
-          {
-            "id": "att-c2-first-transcript",
-            "kind": "txt",
-            "name": "一次面接 文字起こし.txt",
-            "size": "8 KB",
-            "previewText": "[14:00:12] 田中: 本日はお時間ありがとうございます。\n[14:00:35] 佐藤: こちらこそ、よろしくお願いします。\n[14:01:08] 田中: それでは早速、自己紹介からお願いできますか。\n[14:01:24] 佐藤: はい。直近 6 年は toB SaaS のフロントエンド開発を中心にやってきました…\n[14:08:40] 田中: 技術選定で迷ったとき、何を一番大事にしますか。\n[14:09:02] 佐藤: チームの学習曲線です。新しい技術が良くても、チームが追いつけないなら採らない…"
-          }
-        ]
+        "label": "対応中",
+        "date": "",
+        "format": "未定",
+        "interviewer": "Web担当",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
+        "attachments": []
       },
       {
         "stage": "second",
-        "label": "二次面接",
-        "date": "2026-05-12",
-        "format": "オンライン (Google Meet)",
-        "interviewer": "担当者未定",
-        "axisScores": {
-          "achievements": null,
-          "thinkingAbility": null,
-          "communication": null,
-          "cultureFit": null
-        },
+        "label": "承認待ち",
+        "date": "",
+        "format": "未定",
+        "interviewer": "経理担当",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
         "attachments": []
       },
       {
         "stage": "final",
-        "label": "最終面接",
+        "label": "完了",
         "date": "",
         "format": "未定",
-        "interviewer": "担当者未定",
-        "axisScores": {
-          "achievements": null,
-          "thinkingAbility": null,
-          "communication": null,
-          "cultureFit": null
-        },
+        "interviewer": "技術担当",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
         "attachments": []
       }
     ],
-    "stage": "first"
-  },
-  {
-    "id": "c3",
-    "profile": {
-      "name": "山田 次郎",
-      "birthday": "",
-      "source": "",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
-      "desiredSalaryMax": "",
-      "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
-    },
-    "scorecards": [],
     "stage": "screening"
   },
   {
-    "id": "c4",
+    "id": "sc-002",
     "profile": {
-      "name": "鈴木 一郎",
-      "birthday": "",
-      "source": "",
+      "name": "電源アダプタ USB-C 対応",
+      "birthday": "2026-05-20",
+      "source": "部品変更",
       "email": "",
       "phone": "",
       "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
+      "recruiter": "鈴木 理恵",
+      "desiredSalaryMin": "Rev.5",
       "desiredSalaryMax": "",
-      "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
+      "availableStartDate": "2026-05-31",
+      "careerText": "電源アダプタをUSB-C対応に変更。入力電圧範囲を拡大（100–240 V）。\n\n影響範囲：\n- カタログ（仕様表・同梱品一覧）\n- Webサイト（製品ページ・仕様タブ）\n- 価格表（品番変更なし、同梱品記載）\n- 取扱説明書（接続手順の図解更新）",
+      "motivationFull": "海外向け出荷対応のため電源規格を変更。USB-C統一によりケーブル管理が簡素化される。すべてのツールへの反映が完了し、承認済み。"
     },
-    "scorecards": [],
-    "stage": "first"
-  },
-  {
-    "id": "c5",
-    "profile": {
-      "name": "高橋 美咲",
-      "birthday": "",
-      "source": "",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
-      "desiredSalaryMax": "",
-      "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
-    },
-    "scorecards": [],
-    "stage": "first"
-  },
-  {
-    "id": "c6",
-    "profile": {
-      "name": "渡辺 健太",
-      "birthday": "",
-      "source": "",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
-      "desiredSalaryMax": "",
-      "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
-    },
-    "scorecards": [],
+    "scorecards": [
+      {
+        "stage": "screening",
+        "label": "未申請",
+        "date": "2026-05-21",
+        "format": "非同期",
+        "interviewer": "上司A",
+        "decision": "承認済",
+        "comment": "カタログRev.5の承認完了。印刷所に入稿済み。",
+        "summary": "仕様表・同梱品一覧を更新。表紙の電源仕様表記も修正。上司Aによる最終確認済み。",
+        "axisScores": { "achievements": 5, "thinkingAbility": 5, "communication": 5, "cultureFit": 5 },
+        "attachments": [
+          { "id": "att-002-cat", "kind": "pdf", "name": "カタログ_PB200_Rev5.pdf", "size": "1.8 MB" }
+        ]
+      },
+      {
+        "stage": "first",
+        "label": "対応中",
+        "date": "2026-05-22",
+        "format": "非同期",
+        "interviewer": "Web担当",
+        "decision": "完了",
+        "comment": "製品ページの仕様タブを更新。Google検索キャッシュのクリアを依頼済み。",
+        "summary": "製品ページのUSB-C表記・入力電圧範囲を更新。仕様タブのPDFリンクも新版に差し替え。",
+        "axisScores": { "achievements": 5, "thinkingAbility": 5, "communication": 5, "cultureFit": 5 },
+        "attachments": []
+      },
+      {
+        "stage": "second",
+        "label": "承認待ち",
+        "date": "2026-05-23",
+        "format": "非同期",
+        "interviewer": "経理担当",
+        "decision": "完了",
+        "comment": "価格表の同梱品記載を更新。品番変更なし。",
+        "summary": "価格表の同梱品欄「USB-C電源アダプタ（100-240V）」に更新。版番号2026-Aで管理。",
+        "axisScores": { "achievements": 5, "thinkingAbility": 5, "communication": 5, "cultureFit": 5 },
+        "attachments": [
+          { "id": "att-002-price", "kind": "pdf", "name": "価格表_2026A.pdf", "size": "340 KB" }
+        ]
+      },
+      {
+        "stage": "final",
+        "label": "完了",
+        "date": "2026-05-25",
+        "format": "非同期",
+        "interviewer": "技術担当",
+        "decision": "承認済",
+        "comment": "取扱説明書Rev.12の承認完了。接続手順の図解を全ページ更新済み。",
+        "summary": "USB-C接続の手順図を新規作成。電圧範囲の記載を全箇所更新。安全上の注意も見直し済み。",
+        "axisScores": { "achievements": 5, "thinkingAbility": 5, "communication": 5, "cultureFit": 5 },
+        "attachments": [
+          { "id": "att-002-manual", "kind": "pdf", "name": "取扱説明書_PB200_Rev12.pdf", "size": "5.2 MB" }
+        ]
+      }
+    ],
     "stage": "final"
   },
   {
-    "id": "c7",
+    "id": "sc-003",
     "profile": {
-      "name": "中村 聡",
-      "birthday": "",
-      "source": "",
+      "name": "防水規格 IP65 → IP67 変更",
+      "birthday": "2026-06-10",
+      "source": "規格対応",
       "email": "",
       "phone": "",
       "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
+      "recruiter": "佐藤 明",
+      "desiredSalaryMin": "Rev.2",
       "desiredSalaryMax": "",
       "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
+      "careerText": "防水規格をIP65からIP67にアップグレード。外観変更なし。\n\n影響範囲：\n- カタログ（仕様表・保護等級記載）\n- Webサイト（製品ページ）\n- 価格表（品番変更なし）\n- 取扱説明書（保護等級・使用環境の記載）",
+      "motivationFull": "防水性能の強化により、より過酷な環境での使用が可能になる。外観変更はないが、すべてのドキュメントの保護等級表記を更新する必要がある。"
     },
-    "scorecards": [],
-    "stage": "first",
-    "archived": true
-  },
-  {
-    "id": "c8",
-    "profile": {
-      "name": "小林 結衣",
-      "birthday": "",
-      "source": "",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "recruiter": "",
-      "desiredSalaryMin": "",
-      "desiredSalaryMax": "",
-      "availableStartDate": "",
-      "careerText": "",
-      "motivationFull": ""
-    },
-    "scorecards": [],
-    "stage": "screening",
-    "archived": true
+    "scorecards": [
+      {
+        "stage": "screening",
+        "label": "未申請",
+        "date": "",
+        "format": "未定",
+        "interviewer": "担当者未定",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
+        "attachments": []
+      },
+      {
+        "stage": "first",
+        "label": "対応中",
+        "date": "",
+        "format": "未定",
+        "interviewer": "担当者未定",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
+        "attachments": []
+      },
+      {
+        "stage": "second",
+        "label": "承認待ち",
+        "date": "",
+        "format": "未定",
+        "interviewer": "担当者未定",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
+        "attachments": []
+      },
+      {
+        "stage": "final",
+        "label": "完了",
+        "date": "",
+        "format": "未定",
+        "interviewer": "担当者未定",
+        "axisScores": { "achievements": null, "thinkingAbility": null, "communication": null, "cultureFit": null },
+        "attachments": []
+      }
+    ],
+    "stage": "screening"
   }
 ]

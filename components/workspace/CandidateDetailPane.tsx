@@ -66,18 +66,18 @@ type EditableScorecardKey =
 // ===== 定数（screening-lab / profile-card-lab から移植） =====
 
 const FORMAT_OPTIONS = [
-  "書類",
-  "オンライン (Google Meet)",
-  "オフライン",
+  "対面MTG",
+  "オンラインMTG",
+  "非同期",
 ] as const;
 
-const DECISION_OPTIONS = ["通過", "保留", "不合格"] as const;
+const DECISION_OPTIONS = ["承認済", "差し戻し", "保留"] as const;
 
 const INITIAL_INTERVIEWER_OPTIONS: ComboOption[] = [
-  { value: "田中 花子", description: "採用担当チーム" },
-  { value: "佐藤 太郎", description: "エンジニアリングマネージャー" },
-  { value: "鈴木 一郎", description: "シニアエンジニア" },
-  { value: "山田 美咲", description: "プロダクトマネージャー" },
+  { value: "田中 PM", description: "プロジェクトマネージャー" },
+  { value: "佐藤 デザイナー", description: "UIデザイナー" },
+  { value: "鈴木 エンジニア", description: "フロントエンドエンジニア" },
+  { value: "山田 リード", description: "テックリード" },
 ];
 
 // ===== 選考ステージ詳細（旧モード 2、ADR-0015 で唯一のモードに） =====
@@ -109,9 +109,9 @@ function Mode2StageDetail({
   ) => void;
 }) {
   const isScreening = scorecard.stage === "screening";
-  const interviewerLabel = isScreening ? "審査担当" : "面接官";
-  const summaryHeading = isScreening ? "書類の要約" : "面接の要約";
-  const attachmentHeading = isScreening ? "提出書類" : "添付";
+  const interviewerLabel = "承認者";
+  const summaryHeading = isScreening ? "更新内容サマリ" : "対応記録";
+  const attachmentHeading = "添付ファイル";
 
   const [interviewerOptions, setInterviewerOptions] = useState<ComboOption[]>(
     INITIAL_INTERVIEWER_OPTIONS,
@@ -127,7 +127,7 @@ function Mode2StageDetail({
       {/* 基本情報（日時 / 形式 / 面接官 / 判定） */}
       <Pane4Section id={PANE4_SECTION_IDS.m2.info} title="基本情報">
         <dl className="flex flex-col gap-2.5 text-sm">
-          <InlineFieldRow label="日時">
+          <InlineFieldRow label="対応日">
             <InlineDateField
               value={scorecard.date}
               onSave={(v) => onUpdateScorecardField(scorecard.stage, "date", v)}
@@ -135,7 +135,7 @@ function Mode2StageDetail({
             />
           </InlineFieldRow>
 
-          <InlineFieldRow label="形式">
+          <InlineFieldRow label="対応方法">
             <InlineSelectField
               value={scorecard.format}
               options={FORMAT_OPTIONS}
@@ -158,7 +158,7 @@ function Mode2StageDetail({
             />
           </InlineFieldRow>
 
-          <InlineFieldRow label="判定">
+          <InlineFieldRow label="承認状況">
             <InlineSelectField
               value={scorecard.decision ?? ""}
               options={DECISION_OPTIONS}
@@ -191,16 +191,16 @@ function Mode2StageDetail({
 
       <Separator />
 
-      {/* 担当者のコメント（textarea） */}
+      {/* コメント（textarea） */}
       <Pane4Section
         id={PANE4_SECTION_IDS.m2.comment}
-        title="担当者のコメント"
+        title="コメント"
         className="gap-2"
       >
         <InlineTextareaField
           value={scorecard.comment ?? ""}
           onSave={(v) => onUpdateScorecardField(scorecard.stage, "comment", v)}
-          ariaLabel="担当者のコメント"
+          ariaLabel="コメント"
         />
       </Pane4Section>
 

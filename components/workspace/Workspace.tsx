@@ -357,8 +357,8 @@ export function Workspace({
   const consumeScrollAnchor = useCallback(() => setScrollAnchor(null), []);
   const togglePane4 = useCallback(() => setPane4ManuallyClosed((v) => !v), []);
 
-  const positionTitle = "フロントエンドエンジニア";
-  const departmentTitle = "プロダクト開発";
+  const positionTitle = "デジタル台秤";
+  const departmentTitle = "計量器";
 
   const candidateGroups: Group[] = useMemo(() => {
     // ステージグループは常に 4 段階すべて表示する。空ステージも残すことで、
