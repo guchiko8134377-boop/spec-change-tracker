@@ -357,7 +357,7 @@ export function Workspace({
   const consumeScrollAnchor = useCallback(() => setScrollAnchor(null), []);
   const togglePane4 = useCallback(() => setPane4ManuallyClosed((v) => !v), []);
 
-  const positionTitle = "デジタル台秤";
+  const positionTitle = "デジタル台はかり";
   const departmentTitle = "計量器";
 
   const candidateGroups: Group[] = useMemo(() => {
