@@ -3,17 +3,20 @@
     "id": "d-scale",
     "name": "計量器",
     "positions": [
-      { "id": "p-digital", "name": "デジタル台秤",   "count": 3 },
-      { "id": "p-precise", "name": "精密天秤",        "count": 2 },
-      { "id": "p-load",    "name": "ロードセル",       "count": 1 }
+      { "id": "p-digital",     "name": "デジタル台はかり",       "count": 3 },
+      { "id": "p-precise",     "name": "デジタル吊はかり",       "count": 2 },
+      { "id": "p-handlift",    "name": "ハンドリフトスケール",   "count": 1 },
+      { "id": "p-loadmeter",   "name": "ロードメーター",         "count": 1 },
+      { "id": "p-truck",       "name": "トラックスケール",       "count": 1 },
+      { "id": "p-forklift",    "name": "フォークリフトスケール", "count": 1 }
     ]
   },
   {
     "id": "d-sensor",
-    "name": "センサー・検査装置",
+    "name": "センサー",
     "positions": [
-      { "id": "p-pressure", "name": "圧力センサー",   "count": 2 },
-      { "id": "p-inspect",  "name": "検査装置",        "count": 1 }
+      { "id": "p-compression", "name": "圧縮型ロードセル", "count": 1 },
+      { "id": "p-tension",     "name": "引張型ロードセル", "count": 1 }
     ]
   }
 ]

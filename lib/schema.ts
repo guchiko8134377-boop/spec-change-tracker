@@ -206,6 +206,7 @@ export type CandidateRow = {
   id: string;
   name: string;
   averageScore: number | null;
+  deadlineDate: string;
 };
 
 // Pane 2 のグループ表示単位（ステージ or アーカイブ済み）。

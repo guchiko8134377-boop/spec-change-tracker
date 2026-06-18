@@ -374,6 +374,7 @@ export function Workspace({
           id: c.id,
           name: c.profile.name,
           averageScore: getCandidateAverageScore(c),
+          deadlineDate: c.profile.availableStartDate,
         })),
     }));
 
@@ -383,6 +384,7 @@ export function Workspace({
         id: c.id,
         name: c.profile.name,
         averageScore: getCandidateAverageScore(c),
+        deadlineDate: c.profile.availableStartDate,
       }));
 
     if (archivedItems.length === 0) return stageGroups;

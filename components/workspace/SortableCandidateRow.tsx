@@ -8,6 +8,7 @@ import { GripVertical, MoreHorizontal, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { type CandidateRow, type StageKey } from "@/lib/schema";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -99,6 +100,7 @@ export function SortableCandidateRow({
         </Avatar>
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm">{cand.name}</p>
+          <DeadlineBadge deadlineDate={cand.deadlineDate} />
         </div>
         <span className="transition-opacity group-focus-within/candidate:opacity-0 group-hover/candidate:opacity-0">
           <ScoreBadge avg={cand.averageScore} selected={selected} />
@@ -129,6 +131,41 @@ export function SortableCandidateRow({
       </DropdownMenu>
     </li>
   );
+}
+
+function DeadlineBadge({ deadlineDate }: { deadlineDate: string }) {
+  if (!deadlineDate) return null;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const deadline = new Date(deadlineDate);
+  deadline.setHours(0, 0, 0, 0);
+  const diffDays = Math.ceil(
+    (deadline.getTime() - today.getTime()) / (1000 * 60 * 60 * 24),
+  );
+
+  if (diffDays < 0) {
+    return (
+      <Badge
+        variant="destructive"
+        className="mt-0.5 h-4 px-1 text-[10px] leading-none"
+        aria-label="期日超過"
+      >
+        期日超過
+      </Badge>
+    );
+  }
+  if (diffDays <= 3) {
+    return (
+      <Badge
+        className="mt-0.5 h-4 bg-amber-500 px-1 text-[10px] leading-none text-white hover:bg-amber-500"
+        aria-label={`期日まであと${diffDays}日`}
+      >
+        あと{diffDays}日
+      </Badge>
+    );
+  }
+  return null;
 }
 
 function ScoreBadge({
