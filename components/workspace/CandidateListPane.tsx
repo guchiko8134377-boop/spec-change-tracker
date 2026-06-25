@@ -56,6 +56,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { AddItemDialog } from "@/components/workspace/AddItemDialog";
 import { STAGE_LABELS } from "@/lib/labels";
 
+const STAGE_DOT_COLORS: Record<StageKey, string> = {
+  screening: "bg-slate-400",
+  first:     "bg-blue-500",
+  second:    "bg-amber-500",
+  final:     "bg-emerald-500",
+};
+
 // dnd-kit のスクリーンリーダー向け日本語化。
 const screenReaderInstructions: ScreenReaderInstructions = {
   draggable:
@@ -329,6 +336,10 @@ function StageGroup({
     <div>
       <div className="sticky top-0 z-10 -mx-3 mb-2 flex items-center justify-between gap-2 bg-background px-5 py-1.5">
         <div className="flex min-w-0 items-center gap-1.5">
+          <span
+            className={cn("size-2 shrink-0 rounded-full", STAGE_DOT_COLORS[stage])}
+            aria-hidden="true"
+          />
           <h3 className="truncate text-xs font-medium text-muted-foreground">
             {label}
           </h3>

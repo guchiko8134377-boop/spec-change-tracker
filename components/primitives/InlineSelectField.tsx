@@ -44,7 +44,7 @@ export function InlineSelectField({
 }: InlineSelectFieldProps) {
   return (
     <Select
-      value={value === "" ? undefined : value}
+      value={value}
       onValueChange={(v) => onSave(v ?? "")}
     >
       <SelectTrigger

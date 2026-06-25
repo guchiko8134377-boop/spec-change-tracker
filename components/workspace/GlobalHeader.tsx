@@ -27,6 +27,7 @@ type GlobalHeaderProps = {
   departments: Department[];
   onAddDepartment: (name: string) => void;
   onDeleteDepartment: (deptId: string) => void;
+  saveStatus?: "saved" | "saving" | "";
 };
 
 export function GlobalHeader({
@@ -36,9 +37,10 @@ export function GlobalHeader({
   departments,
   onAddDepartment,
   onDeleteDepartment,
+  saveStatus,
 }: GlobalHeaderProps) {
   return (
-    <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border bg-background px-3">
+    <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border border-t-2 border-t-primary bg-background px-3">
       <Breadcrumb
         className="min-w-0 flex-1 overflow-hidden"
         aria-label="パンくず"
@@ -59,6 +61,15 @@ export function GlobalHeader({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+
+      {saveStatus === "saving" && (
+        <span className="shrink-0 text-[11px] text-muted-foreground">
+          保存中…
+        </span>
+      )}
+      {saveStatus === "saved" && (
+        <span className="shrink-0 text-[11px] text-green-600">✓ 保存済み</span>
+      )}
 
       <Dialog>
         <Tooltip>

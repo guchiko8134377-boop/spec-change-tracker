@@ -40,7 +40,7 @@
  *   - openspec/changes/add-4pane-workspace-template/design.md D51〜D56 / D65
  */
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 
 import {
   type Profile,
@@ -105,7 +105,37 @@ export function Workspace({
   const [departments, setDepartments] =
     useState<Department[]>(initialDepartments);
   const [candidates, setCandidates] = useState<Candidate[]>(initialCandidates);
-  const [selectedCandidateId, setSelectedCandidateId] = useState<string>("c2");
+  const [selectedCandidateId, setSelectedCandidateId] = useState<string>(
+    initialCandidates[0]?.id ?? "c2",
+  );
+  const [saveStatus, setSaveStatus] = useState<"saved" | "saving" | "">("");
+
+  // 初回マウント時は保存しない
+  const isFirstRender = useRef(true);
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    // 変更から1秒後にDBへ自動保存
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    setSaveStatus("saving");
+    saveTimerRef.current = setTimeout(async () => {
+      try {
+        await fetch("/api/state", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ candidates, departments }),
+        });
+        setSaveStatus("saved");
+        setTimeout(() => setSaveStatus(""), 2000);
+      } catch {
+        setSaveStatus("");
+      }
+    }, 1000);
+  }, [candidates, departments]);
   const [selectedDetail, setSelectedDetail] = useState<SelectedDetail>(null);
   const [scrollAnchor, setScrollAnchor] = useState<string | null>(null);
   // ユーザーが手動で Pane 4 を畳んだか。ステージ選択は保持しつつ畳む用途。
@@ -420,6 +450,7 @@ export function Workspace({
           departments={departments}
           onAddDepartment={addDepartment}
           onDeleteDepartment={deleteDepartment}
+          saveStatus={saveStatus}
         />
         {/* SidebarInset 自体が <main> を出すので、内側は <div> で組み、
             Pane 2 / Pane 3 / Pane 4 を横並びにする。 */}
