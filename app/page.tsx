@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Workspace } from "@/components/workspace/Workspace";
 import positionsData from "@/data/positions.json";
 import candidatesData from "@/data/candidates.json";
