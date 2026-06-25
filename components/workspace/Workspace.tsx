@@ -124,14 +124,21 @@ export function Workspace({
     setSaveStatus("saving");
     saveTimerRef.current = setTimeout(async () => {
       try {
-        await fetch("/api/state", {
+        const res = await fetch("/api/state", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ candidates, departments }),
         });
-        setSaveStatus("saved");
-        setTimeout(() => setSaveStatus(""), 2000);
-      } catch {
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          console.error("保存失敗:", res.status, err);
+          setSaveStatus("");
+        } else {
+          setSaveStatus("saved");
+          setTimeout(() => setSaveStatus(""), 2000);
+        }
+      } catch (e) {
+        console.error("保存エラー:", e);
         setSaveStatus("");
       }
     }, 1000);
